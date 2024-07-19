@@ -19,7 +19,7 @@
 
 #Marca, cantidad de lámparas, total a pagar sin descuento, el descuento obtenido si corresponde, el descuento adicional (si corresponde) y el total a pagar con descuento.
 
-# ________________________________________________________________________________________________________________________________________
+# ____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # MARCAS POSIBLES:
 # ArgentinaLuz
@@ -33,12 +33,13 @@
 # llevando 3-------------> Argentinaluz:15%; FelipeLamparas:10%, otras:5%
 # descuento adiciona-----> 5% sobre el precio con descuento si supera $4000
 
+# Constantes
 valorLamp = 800
 validMarca = 0
 validCantidad = 0
 
 # Pedimos y validamos la marca
-print("\nBienvenido a Ferrete Lámparas, donde lo único más bajo que el consumo es el precio.\nTodas nuestras lámparas son de bajo consumo y tienen el valor de $800.\n\nDESCUENTOS:\nLlevando 6 o más-------> todas las marcas:50%\n\nLlevando 5-------------> Argentinaluz:40%, FelipeLamparas y otras:30%\n\nLlevando 4-------------> Argentinaluz y FelipeLamparas:25%, otras\n\nLlevando 3-------------> Argentinaluz:15%, FelipeLamparas:10% y otras:5%\n\nDESCUENTO ADICIONAL----> 5% sobre el precio con descuento si supera $4000\n\nMARCAS DESTACADAS:\n1- Argentinaluz\n2- FelipeLamparas\n3- Otra marca\n")
+print("\nBienvenido a Ferrete Lámparas, donde lo único más bajo que el consumo es el precio.\nTodas nuestras lámparas son de bajo consumo y tienen el valor de $800.\n\nDESCUENTOS:\nLlevando 6 o más-------> Todas las marcas: 50%OFF\n\nLlevando 5------------> Argentinaluz: 40%OFF, FelipeLamparas y otras: 30%OFF\n\nLlevando 4-------------> Argentinaluz y FelipeLamparas: 25%OFF, otras: 20%OFF\n\nLlevando 3-------------> Argentinaluz: 15%OFF, FelipeLamparas: 10%OFF y otras: 5%OFF\n\nDESCUENTO ADICIONAL----> 5% OFF sobre el precio con descuento si supera $4000\n\nMARCAS DESTACADAS:\n1- Argentinaluz\n2- FelipeLamparas\n3- Otra marca\n")
 opcMarca = int(input('Ingrese la opción marca de lámparas de bajo consumo que desea comprar: '))
 
 while validMarca == 0:
@@ -89,8 +90,7 @@ else:
 totalConDesc = totalSinDesc-descuento
 
 # Salida de consola
-#Marca, cantidad de lámparas, total a pagar sin descuento, el descuento obtenido si corresponde, el descuento adicional (si corresponde) y el total a pagar con descuento.
-
+print("RESUMEN FINAL DE COMPRA")
 match opcMarca:
     case 1:
       print("\nUsted está comprando lámparas de la marca Argentinaluz\n")
@@ -100,9 +100,6 @@ match opcMarca:
       print("\nUsted está comprando lámparas de una marca alternativa a Argentinaluz o FelipeLamparas\n")
 
 print("La cantidad de lámparas en su carrito de compra es de: " + str(cantidad))
-
-
-
 
 if descuento>0:
    totalSDR = str(round(totalSinDesc, 2))
