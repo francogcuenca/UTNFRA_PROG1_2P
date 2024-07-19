@@ -52,9 +52,9 @@ cantidad = int(input('Ingrese la cantidad de lámparas de bajo consumo que desea
 
 while validCantidad == 0:
     if cantidad > 0 and cantidad < 100000 :
-     cantidad = int(input('La cantidad ingresada no es válida, ingrese la cantidad de lamparas que desea comprar nuevamente: '))
+       validCantidad = 1
     else:
-        validCantidad = 1
+        cantidad = int(input('La cantidad ingresada no es válida, ingrese la cantidad de lamparas que desea comprar nuevamente: '))
 
 
 totalSinDesc = cantidad * valorLamp
