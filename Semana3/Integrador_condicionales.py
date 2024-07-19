@@ -42,7 +42,7 @@ print("Bienvenido a Ferrete Lámparas, donde lo único más bajo que el consumo 
 opcMarca = int(input('Ingrese la opción marca de lámparas de bajo consumo que desea comprar: '))
 
 while validMarca == 0:
-    if marca > 3 or marca < 0 or marca != int:
+    if opcMarca > 3 or opcMarca < 0 or opcMarca != int:
      marca = int(input('La opción ingresada no es válida, ingrese la opción de marca de lamparas que desea comprar nuevamente: '))
     else:
         validMarca = 1
