@@ -38,23 +38,23 @@ validMarca = 0
 validCantidad = 0
 
 # Pedimos y validamos la marca
-print("Bienvenido a Ferrete Lámparas, donde lo único más bajo que el consumo es el precio.\n1- Argentinaluz\n2- FelipeLamparas\n3- Otra marca\n")
+print("\nBienvenido a Ferrete Lámparas, donde lo único más bajo que el consumo es el precio.\nTodas nuestras lámparas son de bajo consumo y tienen el valor de $800.\n\nDESCUENTOS:\nLlevando 6 o más-------> todas las marcas:50%\n\nLlevando 5-------------> Argentinaluz:40%, FelipeLamparas y otras:30%\n\nLlevando 4-------------> Argentinaluz y FelipeLamparas:25%, otras\n\nLlevando 3-------------> Argentinaluz:15%, FelipeLamparas:10% y otras:5%\n\nDESCUENTO ADICIONAL----> 5% sobre el precio con descuento si supera $4000\n\nMARCAS DESTACADAS:\n1- Argentinaluz\n2- FelipeLamparas\n3- Otra marca\n")
 opcMarca = int(input('Ingrese la opción marca de lámparas de bajo consumo que desea comprar: '))
 
 while validMarca == 0:
     if opcMarca==3 or opcMarca==2 or opcMarca==1:
        validMarca = 1
     else:
-       opcMarca = int(input('La opción ingresada no es válida, ingrese la opción de marca de lamparas que desea comprar nuevamente: '))
+       opcMarca = int(input('\nLa opción ingresada no es válida, ingrese la opción de marca de lamparas que desea comprar nuevamente: '))
 
 # Pedimos y validamos la cantidad   
-cantidad = int(input('Ingrese la cantidad de lámparas de bajo consumo que desea comprar (en número): '))
+cantidad = int(input('\nIngrese la cantidad de lámparas de bajo consumo que desea comprar (en número): '))
 
 while validCantidad == 0:
     if cantidad > 0 and cantidad < 100000 :
        validCantidad = 1
     else:
-        cantidad = int(input('La cantidad ingresada no es válida, ingrese la cantidad de lamparas que desea comprar nuevamente: '))
+        cantidad = int(input('\nLa cantidad ingresada no es válida, ingrese la cantidad de lamparas que desea comprar nuevamente: '))
 
 
 totalSinDesc = cantidad * valorLamp
@@ -93,24 +93,28 @@ totalConDesc = totalSinDesc-descuento
 
 match opcMarca:
     case 1:
-      print("Usted está comprando lámparas de la marca Argentinaluz\n")
+      print("\nUsted está comprando lámparas de la marca Argentinaluz\n")
     case 2:
-      print("Usted está comprando lámparas de la marca FelipeLamparas\n")
+      print("\nUsted está comprando lámparas de la marca FelipeLamparas\n")
     case 3:
-      print("Usted está comprando lámparas de una marca diferente a Argentinaluz o FelipeLamparas\n")
+      print("\nUsted está comprando lámparas de una marca alternativa a Argentinaluz o FelipeLamparas\n")
 
-print("La cantidad de lámparas a comprar es:", str(cantidad))
+print("La cantidad de lámparas en su carrito de compra es de: " + str(cantidad))
 
-print("El total a pagar sin descuentos es:", str(totalSinDesc))
+
 
 
 if descuento>0:
-   prtDescuento = str(descuento)
-   print("\nEl descuento obtenido por su compra es de:", prtDescuento)
+   totalSDR = str(round(totalSinDesc, 2))
+   print("\nEl precio total de su compra sin descuentos es de: $" + totalSDR)
+   DescuentoR = str(round(descuento, 2))
+   print("\nEl descuento obtenido por su compra es de: $" + DescuentoR)
 
 
 if totalConDesc>4000:
    descuentoAdicional = totalConDesc*0.05
    totalConDesc = totalConDesc - descuentoAdicional
-   print("Además, obtuvo un descuento adicional por compra superior a $4000 de:", str(descuentoAdicional))
-   print("TOTAL A PAGAR CON DESCUENTO:", str(totalConDesc))
+   print("\nAdemás, obtuvo un descuento adicional por compra superior a $4000 de: $" + str(descuentoAdicional))
+
+totalConDescR = str(round(totalConDesc, 2))
+print("\n\nTOTAL A PAGAR: $" + totalConDescR + "\n")
