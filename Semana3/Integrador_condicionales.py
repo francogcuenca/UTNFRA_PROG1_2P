@@ -42,16 +42,16 @@ print("Bienvenido a Ferrete Lámparas, donde lo único más bajo que el consumo 
 opcMarca = int(input('Ingrese la opción marca de lámparas de bajo consumo que desea comprar: '))
 
 while validMarca == 0:
-    if opcMarca > 3 or opcMarca < 0 or opcMarca != int:
-     marca = int(input('La opción ingresada no es válida, ingrese la opción de marca de lamparas que desea comprar nuevamente: '))
+    if opcMarca==3 or opcMarca==2 or opcMarca==1:
+       validMarca = 1
     else:
-        validMarca = 1
+       opcMarca = int(input('La opción ingresada no es válida, ingrese la opción de marca de lamparas que desea comprar nuevamente: '))
 
 # Pedimos y validamos la cantidad   
 cantidad = int(input('Ingrese la cantidad de lámparas de bajo consumo que desea comprar (en número): '))
 
 while validCantidad == 0:
-    if cantidad < 0 or cantidad != int:
+    if cantidad > 0 and cantidad < 100000 :
      cantidad = int(input('La cantidad ingresada no es válida, ingrese la cantidad de lamparas que desea comprar nuevamente: '))
     else:
         validCantidad = 1
@@ -71,12 +71,12 @@ if cantidad<6:
         else:
             descuento = totalSinDesc*0.05
     case 4:
-        if opcMarca == 1 or marca == 2:
+        if opcMarca == 1 or opcMarca == 2:
             descuento = totalSinDesc*0.25
         else:
             descuento = totalSinDesc*0.2
     case 5:
-        if marca == 1:
+        if opcMarca == 1:
             descuento = totalSinDesc*0.4
         else:
             descuento = totalSinDesc*0.3
