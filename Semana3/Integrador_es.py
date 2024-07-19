@@ -30,9 +30,8 @@
 
 #Necesitamos saber cuántos Mts de varillas de plástico y cuántos de papel son necesarios para la construcción en masa de 10 cometas. Tener en cuenta que los valores de entrada están expresados en Cms.
 
-print("Ingrese las medidas solicitadas teniendo en cuenta que un cometa es básicamente un rombo y para serlo")
-print("la medida de los lados menores debe ser más chica que la de los lados mayores. A su vez, la medida de")
-print("la diagonal menor (DC) no puede ser más grande que la suma de la medida de los dos lados menores(DB y BC).\n")
+print("\nIngrese las medidas solicitadas teniendo en cuenta que un cometa es básicamente un rombo y para serlo\nla medida de los lados menores debe ser más chica que la de los lados mayores. A su vez, la medida de\nla diagonal menor (DC) no puede ser más grande que la suma de la medida de los dos lados menores(DB y BC).\n")
+
 print("CONFECCIÓN DE UN COMETA\n")
 print("           B")
 print("           .")
@@ -56,14 +55,13 @@ while control == 0:
     # tiene que ser más chica que la suma de ambos lados menores.
     # Todos los lados deben ser mayores a cero.    
     if ladoMayor<=ladoMenor and ladoMenor>0:
-        print("La medida del lado mayor DA no puede ser menor a la del lado menor BC.")
+        print("\nLa medida del lado mayor DA debe ser mayor a la del lado menor BC.\n")
         ladoMayor = float(input("Reingrese la medida del lado mayor en centímetros: "))
     elif ladoMenor<=0:
-        print("La medida ingresada del lado menor BC no puede ser 0 o negativo.")
+        print("\nLa medida ingresada del lado menor BC no puede ser 0 o negativo.\n")
         ladoMenor = float(input("Reingrese la medida del lado menor en centímetros: "))
     elif diagonalMenor<=0 or diagonalMenor>maxDM:
-        print("La medida ingresada de la diagonal menor DC no puede ser mayor a la suma de los lados menores.")
-        print("Tampoco puede ser menor o igual a 0.")
+        print("\nLa medida ingresada de la diagonal menor DC no puede ser mayor a la suma de los lados menores.\nTampoco puede ser menor o igual a cero.\n")
         diagonalMenor =float(input("Reingrese la medida de la diagonal menor en centímeros: "))
     else:
         control = 1
@@ -90,7 +88,7 @@ AB = B0+A0
 
 totalVarilla = str(round((BC*2+DA*2+DC+AB)*10, 2))
 
-totalPapel = str(round(((DC*AB)/2)*10*1.1), 2)
+totalPapel = str(round(((DC*AB)/2)*10*1.1, 2))
 
-print("Teniendo en cuenta que se producirán 10 unidades del cometa confeccionado por usted,")
-print("el total de varilla a utilizar es",totalVarilla,"metros lineales.\nY el total de papel es", totalPapel, "metros cuadrados")
+print("\nPara lanzar una producción de 10 ejemplares del cometa que usted definió,\nla cantidad de materiales a utilizar es la siguiente:\n")
+print("TOTAL DE VARILLA PLÁSTICA NECESARIA:",totalVarilla,"metro/s.\n\nTOTAL DE PAPEL NECESARIO:", totalPapel, "metro/s cuadrado/s.")
