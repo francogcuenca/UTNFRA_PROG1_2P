@@ -23,7 +23,7 @@
     #! 1) - Determina el género más frecuente entre las personas que compraron entradas de tipo "Campo".
     #! 2) - Determina cuántas personas compraron entradas de tipo "General" pagando con tarjeta de crédito y su edad promedio.
 
-#_____________________________________________________________________________________________________________________________
+#_____________________________________________________________________________________________________________________________________________________
 
 # Constantes
 general = 16000
@@ -41,20 +41,24 @@ contEdadGenCred = 0
 
 while ctrlCompra == 0:
     nombre = input('Ingrese su nombre completo: ')
+
     # Edad y validación
     edad = int(input('Ingrese su edad en número (debe ser mayor de 16 años): '))
     while edad < 16:
         edad = int(input('Edad inválida, ingrésela nuevamente: '))
+
     # Género y validación
     print("Género:\nA- Masculino\nB- Femenino\nC- Otro ")
     genero = (input('Ingrese la opción correspondiente a su género: ')).upper()
     while genero!= 'A' and genero!='B' and genero!='C':
         genero = (input('Opción inválida, reingrese la opción correspondiente a su género: ')).upper()
+
     # Entradas y validación
     print("Tipos de entrada disponibles:\nA- General\nB- Campo delantero\nC- Platea ")
     entrada = (input('Ingrese la opción correspondiente a la entrada que dese comprar: ')).upper()
     while entrada!="A" and entrada!="B" and entrada!="C":
-        entrada = int(input('Opción inválida, reingrese la opción correspondiente a la entrada que desea comprar: '))
+        entrada = (input('Opción inválida, reingrese la opción correspondiente a la entrada que desea comprar: ')).upper()
+
     # Medios de pago y validación
     print("Medios de pago disponibles:\nA- Tarjeta de crédito\nB- Tarjeta de débito\nC- Efectivo ")
     medPago = (input('Ingrese la opción correspondiente a la forma de pago que desea utilizar: ')).upper()
@@ -64,25 +68,27 @@ while ctrlCompra == 0:
     # Subtotal según tipo de entrada y medio de pago
     match entrada:
         case "A":
-            if medPago == "A":
-                subtotal = general - general*0.2
-                print("El precio a abonar es de: $" + str(subtotal))
-            elif medPago == "B":
-                subtotal = general - general*0.15
-                print("El precio a abonar es de: $" + str(subtotal))
-            else:
-                print("El precio a abonar es de: $" + str(general))
-            contGenCred += 1
-            contEdadGenCred = contEdadGenCred + edad
+            match medPago:
+                case "A":
+                    subtotal = general - general*0.2
+                    print("El precio a abonar es de: $" + str(subtotal))
+                case "B":
+                    subtotal = general - general*0.15
+                    print("El precio a abonar es de: $" + str(subtotal))
+                case _:
+                    print("El precio a abonar es de: $" + str(general))
+                    contGenCred += 1
+                    contEdadGenCred = contEdadGenCred + edad
         case "B":
-            if medPago == "A":
-                subtotal = campo - campo*0.2
-                print("El precio a abonar es de: $" + str(subtotal))
-            elif medPago == "B":
-                subtotal = campo - campo*0.15
-                print("El precio a abonar es de: $" + str(subtotal))
-            else:
-                print("El precio a abonar es de: $" + str(campo))
+            match medPago:
+                case "A":
+                    subtotal = campo - campo*0.2
+                    print("El precio a abonar es de: $" + str(subtotal))
+                case "B":
+                    subtotal = campo - campo*0.15
+                    print("El precio a abonar es de: $" + str(subtotal))
+                case _:
+                    print("El precio a abonar es de: $" + str(campo))
             match genero:
                 case "A":
                     campoMasculino += 1
@@ -91,15 +97,17 @@ while ctrlCompra == 0:
                 case _:
                     campoOtro += 1
         case "C":
-            if medPago == "A":
-                subtotal = platea - platea*0.2
-                print("El precio a abonar es de: $" + str(subtotal))
-            elif medPago == "B":
-                subtotal = platea - platea*0.15
-                print("El precio a abonar es de: $" + str(subtotal))
-            else:
-                print("El precio a abonar es de: $" + str(platea))
+            match medPago:
+                case "A":
+                    subtotal = platea - platea*0.2
+                    print("El precio a abonar es de: $" + str(subtotal))
+                case "B":
+                    subtotal = platea - platea*0.15
+                    print("El precio a abonar es de: $" + str(subtotal))
+                case _:
+                    print("El precio a abonar es de: $" + str(platea))
     continuar = (input('¿Desea seguir comprando entradas? si/no: ')).upper()
+    
     match continuar:
         case "SI":
             ctrlCompra = 0
@@ -107,6 +115,7 @@ while ctrlCompra == 0:
             ctrlCompra =1
         case _:
             ctrlCompra =1
+
 if campoMasculino > 0 and campoMasculino > campoFemenino and campoMasculino > campoOtro:
     print("El género que más compro entradas de campo es el masculino")
 elif campoFemenino >0 and campoFemenino>campoMasculino and campoFemenino>campoOtro:
@@ -116,4 +125,4 @@ elif campoOtro>0 and campoOtro>campoFemenino and campoOtro>campoMasculino:
     
 if contGenCred>0:
     promEdad = contEdadGenCred/contGenCred
-    print(str(contGenCred),"personas compraron entradas de tipo General pagando con tarjeta de crédito y su edad promedio es",str(round(promEdad, 2))) 
+    print(str(contGenCred),"persona/s compraron entradas de tipo General pagando con tarjeta de crédito y su edad promedio es",str(round(promEdad, 2))) 
