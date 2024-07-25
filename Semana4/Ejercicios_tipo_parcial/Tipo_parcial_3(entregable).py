@@ -41,7 +41,7 @@ print('\nBienvenido al cotizador de ingredientes para preparar comida al por may
 # Input y validaciones
 while flag_compra == True:
     peso = float(input('\nIngrese el peso del ingrediente en kilos (mayor a 10 y menor que 1000): '))
-    while peso<PESO_MIN or peso>PESO_MAX:
+    while peso<=PESO_MIN or peso>=PESO_MAX:
         peso = float(input('\n¡¡ERROR!! Peso no válido, reingrese el peso del ingrediente en kilos (mayor a 10 y menor que 1000): '))
 
     precio_kilo = float(input('\nIngrese el precio del ingrediente por kilo en número: $'))
@@ -52,9 +52,9 @@ while flag_compra == True:
     while not(tipo_variedad=="V" or tipo_variedad=="A" or tipo_variedad=="M"):
         tipo_variedad = (input('\n¡¡ERROR!! Tipo de variedad no válido, reingrese el tipo de variedad: vegetal (V), animal(A) o mezcla (M): ')).upper()
 
-    continuar_compra = (input('\nDesea seguir comprando ingredientes (si/no): ')).upper()
+    continuar_compra = (input('\nDesea seguir ingresando ingredientes (si/no): ')).upper()
     while not(continuar_compra == "SI" or continuar_compra == "NO"):
-        continuar_compra = (input('\n¡¡ERROR!! Entrada incorrecta, desea seguir comprando ingredientes (si/no): ')).upper()
+        continuar_compra = (input('\n¡¡ERROR!! Entrada incorrecta, desea seguir ingresando ingredientes (si/no): ')).upper()
     
     # Chequeo cambio de flag
     if continuar_compra == "NO":
