@@ -68,13 +68,8 @@ while flag_compra == True:
     if precio_mas_caro == None or precio_mas_caro<precio_kilo:
         precio_mas_caro = precio_kilo
         tipo_mas_caro = tipo_variedad
-    match tipo_mas_caro:
-        case "V":
-            tipo_mas_caro = "vegetal"
-        case "A":
-            tipo_mas_caro = "animal"
-        case "M":
-            tipo_mas_caro = "mezcla"
+    elif precio_mas_caro == precio_kilo:
+        tipo_mas_caro = (f'{tipo_mas_caro} y {tipo_variedad}').upper()
 
 
 # Informe
@@ -84,12 +79,31 @@ print(f'El importe bruto a pagar es de: ${acum_precio_str}')
 if acum_peso>LIM_INF_DESC and acum_peso<LIM_SUP_DESC:
     precio_con_descuento = round(acum_precio - acum_precio * DESC_MIN, 2)
     print(f'El importe total con descuento es de: ${precio_con_descuento}')
-
 elif acum_peso>LIM_SUP_DESC:
     precio_con_descuento = round(acum_precio - acum_precio * DESC_MAX, 2)
     print(f'El importe total con descuento es de: ${precio_con_descuento}')
 
-print(f'El alimento más caro es del tipo {tipo_mas_caro}')
+match tipo_mas_caro:
+    case "V":
+        tipo_mas_caro = "vegetal"
+    case "A":
+        tipo_mas_caro = "animal"
+    case "M":
+        tipo_mas_caro = "mezcla"
+    case "V Y A":
+        tipo_mas_caro = "vegetal, empatado con el tipo animal"
+    case "V Y M":
+        tipo_mas_caro = "vegetal, empatado con el tipo mezcla"
+    case "A Y V":
+        tipo_mas_caro = "animal, empatado con el tipo vegetal"
+    case "A Y M":
+        tipo_mas_caro = "animal, empatado con el tipo mezcla"
+    case "M Y V":
+        tipo_mas_caro = "mezcla, empatado con el tipo vegetal"
+    case "M Y A":
+        tipo_mas_caro = "mezcla, empatado con el tipo animal"
+
+print(f'El tipo de ingrediente más caro es {tipo_mas_caro}')
 
 precio_promedio = round((acum_precio/acum_peso), 2)
 print(f'El promedio de precio por kilo total es de: ${precio_promedio}')
