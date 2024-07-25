@@ -66,12 +66,7 @@ while flag_compra == True:
         case "M":
             tipo_mas_caro = "mezcla"
 
-# Se debe Informar al usuario lo siguiente:
-# a)El importe total a pagar , bruto sin descuento y...
-# b)el importe total a pagar con descuento(solo si corresponde)
-# d)Informar el tipo de alimento más caro.
-# f)El promedio de precio por kilo en total.
-
+# Informe
 print('El importe bruto a pagar es de: $',str(round(acum_precio, 2)))
 
 if acum_peso>100 and acum_peso<300:
@@ -86,5 +81,3 @@ print('El alimento más caro es del tipo',tipo_mas_caro)
 
 precio_promedio = round((acum_precio/acum_peso), 2)
 print('El promedio de precio por kilo total es de: $', str(precio_promedio))
-
-
