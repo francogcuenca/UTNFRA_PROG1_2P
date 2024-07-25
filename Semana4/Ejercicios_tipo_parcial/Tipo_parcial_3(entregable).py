@@ -16,6 +16,10 @@
 # Constantes
 PESO_MAX = 1000
 PESO_MIN = 10
+DESC_MIN = 0.15
+DESC_MAX = 0.25
+LIM_INF_DESC = 100
+LIM_SUP_DESC = 300
 
 
 # Flags
@@ -77,13 +81,12 @@ while flag_compra == True:
 acum_precio_str = round(acum_precio,2)
 print(f'El importe bruto a pagar es de: ${acum_precio_str}')
 
-if acum_peso>100 and acum_peso<300:
-    precio_con_descuento = round(acum_precio - acum_precio * 0.15, 2)
-
+if acum_peso>LIM_INF_DESC and acum_peso<LIM_SUP_DESC:
+    precio_con_descuento = round(acum_precio - acum_precio * DESC_MIN, 2)
     print(f'El importe total con descuento es de: ${precio_con_descuento}')
 
-elif acum_peso>300:
-    precio_con_descuento = round(acum_precio - acum_precio * 0.25, 2)
+elif acum_peso>LIM_SUP_DESC:
+    precio_con_descuento = round(acum_precio - acum_precio * DESC_MAX, 2)
     print(f'El importe total con descuento es de: ${precio_con_descuento}')
 
 print(f'El alimento más caro es del tipo {tipo_mas_caro}')
