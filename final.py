@@ -51,7 +51,7 @@ total_publicaciones = 0
 nombre_menor_edad_500=None
 tipo_menor_edad_500=None
 
-while cont_usuarios<4:
+while cont_usuarios<10:
     # Input y validación
     nombre = input('\nIngrese el nombre del usuario vendedor de Mercadolibre: ')
 
