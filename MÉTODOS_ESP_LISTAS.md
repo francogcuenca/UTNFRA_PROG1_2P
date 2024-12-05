@@ -28,18 +28,18 @@ Genera una copia independiente de la lista, duplicando sus elementos.
 ## Ciclos for
 Funciones iterables específicas para listas
 ### enumerate()
-´´´ python
+``` python
 frutas = ["a", "b"]
 for indice, fruta in ***enumerate*** (frutas):
     print (f"Índice: {indice}, Fruta{fruta}")
-´´´
+```
 
 ### zip()
 Itera multiples listas como si de una tabla se tratase
-´´´ python
+```python
 nombres = ["a", "b"]
 edades = [1, 2]
 for nombre, edad in ***zip*** (nombres, edades):
     print (f"Nombre: {nombre}, Edad{edad}")
-´´´
+```
 
